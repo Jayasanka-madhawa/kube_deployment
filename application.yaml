@@ -8,7 +8,7 @@ metadata:
 spec:
   # The source repository URL and the path within that repo
   source:
-    repoURL: https://Jayasanka-madhawa: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@github.com/Jayasanka-madhawa/kube_deployment.git
+    repoURL: https://Jayasanka-madhawa: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@github.com/Jayasanka-madhawa/kube_deployment.git
     targetRevision: HEAD  # You can specify a git commit, branch, or tag here
     path: dev      # The directory within the repo that contains the Kubernetes manifests
 
@@ -23,7 +23,7 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=false  # Create the namespace if it does not exist
+    - CreateNamespace=true  # Create the namespace if it does not exist
 
   # If needed, you can specify which Argo CD project the application belongs to
   project: default

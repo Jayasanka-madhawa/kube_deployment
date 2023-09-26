@@ -1,21 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nervoscan
+  name: jayasanka
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   # The source repository URL and the path within that repo
   source:
-    repoURL: https://supunchathu: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@github.com/supunchathu/kube-argo.git
+    repoURL: https://Jayasanka-madhawa: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@github.com/Jayasanka-madhawa/kube_deployment.git
     targetRevision: HEAD  # You can specify a git commit, branch, or tag here
     path: dev      # The directory within the repo that contains the Kubernetes manifests
 
   # The destination where the application should be deployed
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: jayasanka
 
   # Sync Policy
   syncPolicy:

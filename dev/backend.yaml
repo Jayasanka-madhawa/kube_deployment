@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+  namespace: jayasanka
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: jayasanka-backend
+        image: jayasanka013/backend:1.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        resources: {}
+      restartPolicy: Always

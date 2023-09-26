@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jayasanka-pvc
+  namespace: jayasanka
+spec:
+  selector:
+    matchLabels:
+      pv-label: db-pv
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  volumeName: jayasanka-pv
+  resources:
+    requests:
+      storage: 1Gi

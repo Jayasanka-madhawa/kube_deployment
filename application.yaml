@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nervoscan
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # The source repository URL and the path within that repo
+  source:
+    repoURL: https://supunchathu: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@github.com/supunchathu/kube-argo.git
+    targetRevision: HEAD  # You can specify a git commit, branch, or tag here
+    path: dev      # The directory within the repo that contains the Kubernetes manifests
+
+  # The destination where the application should be deployed
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+
+  # Sync Policy
+  syncPolicy:
+    automated:  # Uncomment if you want to enable auto sync
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=false  # Create the namespace if it does not exist
+
+  # If needed, you can specify which Argo CD project the application belongs to
+  project: default
